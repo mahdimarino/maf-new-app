@@ -56,10 +56,9 @@ export default class Home extends Component {
 
         return (<ScrollView style={styles.ViewStyle}>
 
-            <View style={styles.logo}><View style={styles.logocontainer}><Image style={{ width: 100, height: 100 }} source={{ uri: 'https://play-lh.googleusercontent.com/CKVlp0wwisX8HLl03dlMbp7yzao3UWW3wxuBOtEHn0qJGGarun_XbQdjSP4o0MMYqV4' }} /></View></View>
             <View style={styles.thatStyle}>
                 <View style={styles.firstdiv}>
-                    <Text style={styles.titleText}>THAT Ii FINDER
+                    <Text style={styles.titleText}>THAT ITEM FINDER
                     </Text>
                     <TextInput
                         placeholder={"Search"}
@@ -71,13 +70,13 @@ export default class Home extends Component {
 
                     <TouchableHighlight style={styles.button} onPress={this.ayada}>
                         <View >
-                            <Text style={styles.but} >FIND h ITEM</Text>
+                            <Text style={styles.but} >FIND ITEM</Text>
                         </View>
                     </TouchableHighlight>
                 </View>
                 {this.state.items.map(
                     item => (
-                        <View key={item.id} style={styles.mainvv}>
+                        <View key={item.id} style={styles.mainvv} keyExtractor={(item, index) => index.toString()}>
                             <View style={styles.flixa1}>
                                 <Text style={styles.tx} >productcode:</Text>
                                 <Text style={styles.tx} >Stockroom :</Text>
@@ -113,7 +112,7 @@ const styles = StyleSheet.create({
     titleText: {
         fontSize: 30,
         fontWeight: "bold",
-        marginBottom: 40
+        marginBottom: 20
     },
     logocontainer: {
         width: '50%',
@@ -126,7 +125,7 @@ const styles = StyleSheet.create({
         height: '70%',
         justifyContent: 'center',
         alignItems: 'center',
-        marginBottom: 40
+        marginBottom: 40,
     },
     logoStyle: {
         width: '90%',
@@ -137,7 +136,8 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 70,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        marginTop: 350
 
     },
     tinyLogo: {
@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
         padding: 10,
         marginTop: 10,
         backgroundColor: '#F5F5F5',
-        borderRadius: 30,
+        borderRadius: 20,
 
     },
     firstdiv: {

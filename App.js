@@ -5,7 +5,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import Allitems from './components/allitems';
 import Display from './components/display';
 import Home from './components/home';
-import { View, Text } from "react-native"
+import { View, Text } from "react-native";
+import Logoic from './components/logopic';
 
 const Drawer = createDrawerNavigator();
 
@@ -17,9 +18,39 @@ function MyDrawer() {
 
 
         <Drawer.Navigator>
-          <Drawer.Screen name="home" component={Home} />
+          <Drawer.Screen name="home" component={Home}
+            options={{
+              title: 'Home', //Set Header Title
+              headerStyle: {
+
+                height: 100
+
+              },
+              headerTintColor: 'black', //Set Header text color
+              headerTitleStyle: {
+                fontWeight: 'bold', //Set Header text style
+              },
+              headerRight: () => <Logoic />,
+
+            }}
+          />
           <Drawer.Screen name="allitems" component={Allitems} />
-          <Drawer.Screen name="dislay" component={Display} />
+          <Drawer.Screen name="dislay" component={Display}
+            options={{
+
+              title: 'Reservations', //Set Header Title
+              headerStyle: {
+
+                height: 100
+
+              },
+              headerTintColor: 'black', //Set Header text color
+              headerTitleStyle: {
+                fontWeight: 'bold', //Set Header text style
+              },
+              headerRight: () => <Logoic />,
+
+            }} />
 
         </Drawer.Navigator>
 
