@@ -3,7 +3,7 @@ import { View, Text, style, StyleSheet, ScrollView, Image, TextInput } from "rea
 import { FlatList } from "react-native-gesture-handler";
 
 
-const Display = () => {
+const Reservations = () => {
 
     const [filterData, setfilterdData] = useState([]);
     const [masterData, setmasterData] = useState([]);
@@ -19,7 +19,7 @@ const Display = () => {
 
 
     const searchreservations = () => {
-        const apiURL = 'http://192.168.0.148/api/display_api.php ';
+        const apiURL = 'http://192.168.0.148/api/api.php ';
         fetch(apiURL)
             .then((Response) => Response.json())
             .then((responseJeson) => {
@@ -33,7 +33,7 @@ const Display = () => {
     const searchbar = (text) => {
         if (text) {
             const newData = masterData.filter((item) => {
-                const itemData = item.brandname ? item.brandname.toUpperCase() : ''.toUpperCase();
+                const itemData = item.itemnumber ? item.itemnumber.toUpperCase() : ''.toUpperCase();
                 const textData = text.toUpperCase();
                 return itemData.indexOf(textData) > -1;
             });
@@ -51,24 +51,11 @@ const Display = () => {
         return (
             <View >
                 <Text style={{ padding: 10 }} >
-                    itemnumber :  {item.itemnumber}
+                    {item.itemnumber}
                 </Text>
                 <Text style={{ padding: 10 }} >
-                    Barcode :  {item.barcode}
+                    {item.reservation_id}
                 </Text>
-                <Text style={{ padding: 10 }} >
-                    color : {item.color}
-                </Text>
-                <Text style={{ padding: 10 }} >
-                    size : {item.size}
-                </Text>
-                <Text style={{ padding: 10 }} >
-                    brandname : {item.brandname}
-                </Text>
-                <Text style={{ padding: 10 }} >
-                    location : {item.stockroomname}
-                </Text>
-
             </View>
         )
     }
@@ -144,4 +131,4 @@ const styles = StyleSheet.create({
         backgroundColor: 'white'
     }
 });
-export default Display
+export default Reservations
