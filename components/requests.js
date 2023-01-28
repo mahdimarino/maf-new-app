@@ -3,7 +3,7 @@ import { View, Text, style, StyleSheet, ScrollView, Image, TextInput } from "rea
 import { FlatList } from "react-native-gesture-handler";
 
 
-const Allitems = () => {
+const Requests = () => {
 
     const [filterData, setfilterdData] = useState([]);
     const [masterData, setmasterData] = useState([]);
@@ -19,7 +19,7 @@ const Allitems = () => {
 
 
     const searchreservations = () => {
-        const apiURL = 'http://192.168.0.148/api/apiallitems.php ';
+        const apiURL = 'http://192.168.0.148/api/requests_api.php ';
         fetch(apiURL)
             .then((Response) => Response.json())
             .then((responseJeson) => {
@@ -33,7 +33,7 @@ const Allitems = () => {
     const searchbar = (text) => {
         if (text) {
             const newData = masterData.filter((item) => {
-                const itemData = item.itemnumber ? item.itemnumber.toUpperCase() : ''.toUpperCase();
+                const itemData = item.requestby ? item.requestby.toUpperCase() : ''.toUpperCase();
                 const textData = text.toUpperCase();
                 return itemData.indexOf(textData) > -1;
             });
@@ -51,20 +51,13 @@ const Allitems = () => {
         return (
             <View style={{ backgroundColor: '#dee2e6', marginBottom: 20, borderRadius: 10 }}>
                 <Text style={{ padding: 10 }} >
-                    itemnumber :  {item.itemnumber}
+                    Request by :  {item.requestby}
                 </Text>
                 <Text style={{ padding: 10 }} >
-                    Barcode :  {item.barcode}
+                    Description :  {item.description}
                 </Text>
-                <Text style={{ padding: 10 }} >
-                    color : {item.color}
-                </Text>
-                <Text style={{ padding: 10 }} >
-                    Stockroom : {item.stockroomname}
-                </Text>
-                <Text style={{ padding: 10 }} >
-                    Shelve : {item.tal}
-                </Text>
+
+
             </View>
         )
     }
@@ -140,4 +133,4 @@ const styles = StyleSheet.create({
         backgroundColor: 'white'
     }
 });
-export default Allitems
+export default Requests

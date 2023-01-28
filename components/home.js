@@ -92,9 +92,17 @@ export default class Home extends Component {
 
                     )
                 )}
+                <View>
+                    <View style={styles.biglogo}>
+                        <Image source={require('./biglogo.png')} />
+                    </View>
+                </View>
 
-
-                <View style={styles.logo}><View style={styles.logocontainer2}><Image style={styles.logoStyle} source={require('./MAF.png')} /></View></View></View></ScrollView>);
+                <View style={styles.logo}>
+                    <View style={styles.logocontainer2}><Image style={styles.logoStyle} source={require('./MAF.png')} /></View>
+                </View>
+            </View>
+        </ScrollView>);
     }
 
 }
@@ -137,7 +145,18 @@ const styles = StyleSheet.create({
         height: 70,
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 350
+        marginTop: 170
+
+    },
+    biglogo: {
+        height: '100%',
+        width: '100%',
+        height: 70,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 100
+
+
 
     },
     tinyLogo: {

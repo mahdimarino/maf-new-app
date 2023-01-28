@@ -49,7 +49,7 @@ const Display = () => {
 
     const ItemView = ({ item }) => {
         return (
-            <View >
+            <View style={{ backgroundColor: '#dee2e6', marginBottom: 20, borderRadius: 10 }}>
                 <Text style={{ padding: 10 }} >
                     itemnumber :  {item.itemnumber}
                 </Text>
@@ -75,7 +75,7 @@ const Display = () => {
     const itemSeparatorView = () => {
         return (
             <View
-                style={{ height: 1, width: '100%', backgroundColor: 'grey' }}
+                style={{ height: 1, width: '100%' }}
             />
         )
     }
